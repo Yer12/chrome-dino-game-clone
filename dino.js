@@ -44,11 +44,8 @@ function handleRun(delta, speedScale) {
   }
 
   if (currentFrameTime >= FRAME_TIME) {
-    let changer;
-    setTimeout( (e) => {
-      console.log('this is e - ',e)
-    }, 200)
-    dinoElem.src = `imgs/dino-run-${changer%200}.png`
+    dinoFrame = (dinoFrame + 1) % DINO_FRAME_COUNT
+    dinoElem.src = `imgs/dino-run-${dinoFrame}.png`
     currentFrameTime -= FRAME_TIME
   }
   currentFrameTime += delta * speedScale
